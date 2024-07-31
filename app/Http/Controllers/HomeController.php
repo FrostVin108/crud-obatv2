@@ -6,6 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\ObatModel;
 use Illuminate\View\View;
+use Yajra\DataTables\Facades\Datatables;
 
 class HomeController extends Controller
 {
@@ -24,12 +25,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public functio index(Request $request)
     {
-        $obatmodel = ObatModel::all();
-
-        return view('home', compact('obatmodel'));
-    }
+        if ($request->ajax()) {
+            $data = ObatModel::select('*');
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+    }}
 
     public function create(Request $request)
     {

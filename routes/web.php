@@ -26,3 +26,5 @@ Route::get('/edit/{id}', [HomeController::class,'edit'])->name('obat.edit');
 Route::put('/update{id}', [HomeController::class,'update'])->name('obat.update');
 
 Route::get('/show/{id}', [HomeController::class, 'show'])->name('obat.show');
+
+Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
