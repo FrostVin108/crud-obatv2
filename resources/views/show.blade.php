@@ -29,7 +29,7 @@
                     <td>{{ $obatmodel->stock }}</td>
                     <td>
 
-                        <form method="POST" action="{{ route('obat.del',  $obatmodel->id) }}">
+                        <form method="POST" onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('obat.del',  $obatmodel->id) }}">
                           
                             @csrf
                             @method('delete')

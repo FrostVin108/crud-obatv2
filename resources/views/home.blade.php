@@ -39,7 +39,7 @@
                         {{-- <form action="{{ route('obat.show', $obm->id) }}">
                             <button type="submit" class="btn btn-dark">Detail</button>
                         </form> --}}
-                        <form method="POST" action="{{ route('obat.del',  $obm->id) }}">
+                        <form method="POST" onsubmit="return confirm('Apakah Anda Yakin?');" action="{{ route('obat.del',  $obm->id) }}" > 
                             <a class="btn btn-dark" href="{{ route('obat.show', $obm->id) }}"> detail</a>
                             @csrf
                             @method('delete')

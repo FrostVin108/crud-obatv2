@@ -51,8 +51,8 @@
               </div>
             @enderror
 
-              <button type="submit" class="btn btn-success">Update</button>
-              <button type="reset" class="btn btn-success">Reset</button>
+              <button type="submit" class="btn btn-secondary">Update</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
               <a href="{{ route('obat.home') }}" class="btn btn-warning">Return</a>
         </form>    
         
